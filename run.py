@@ -75,6 +75,34 @@ def play(name, hidden_word, attempts, prompt):
     print(prompt)
     print("\n")
 
+    # While loop to loop until either guessed or run out of tries
+    while not guessed and attempts > 0:
+        guess = input(f"Please guess a letter or word {name}.")
+        # Code to handle when user inputs a letter
+        if len(guess) == 1 and guess.isalpha():
+            if guess in guessed_letters:
+                print("You have already guessed that letter:", guess)
+            elif guess not in hidden_word:
+                print(guess, "is not in the word")
+                attempts -= 1
+                guessed_letters.append(guess)
+            else:
+                print(f"Well done {name}, {guess} is in the word!")
+                guessed_letters.append(guess)
+                hidden_word_as_list = list(hidden_word)
+                list_index = [i for i,
+                              letter in enumerate(hidden_word)
+                              if letter == guess]
+                for index in list_index:
+                    hidden_word_as_list[index] = guess
+                prompt = "".join(hidden_word_as_list)
+                if "_" not in prompt:
+                    guessed = True
+
+        print(f"You have {attempts} attempts left.")
+        print(prompt)
+        print("\n")
+
 
 def main():
     """
@@ -85,5 +113,6 @@ def main():
     attempts_left = calculate_attempts(word_to_guess)
     word_prompt = build_prompt(word_to_guess)
     play(user_name, word_to_guess, attempts_left, word_prompt)
+
 
 main()
