@@ -20,7 +20,7 @@ def choose_name():
         print(f"Hello, {name.capitalize()}, Let's get started!")
     else:
         print("Please enter a valid name using only letters.\n")
-        choose_name()
+        name = input("Please enter your name!\n")
     return name
 
 
