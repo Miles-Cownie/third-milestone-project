@@ -10,6 +10,11 @@ from words_hard import hard_word_list
 
 
 def choose_name():
+    """
+    This code prompts the user to input their name.
+    Names not made of letters will flag error to user and
+    they will be prompt to submit a valid name.
+    """
     name = input("Please enter your name!\n")
     if name.isalpha():
         print(f"Hello, {name.capitalize()}, Let's get started!")
@@ -18,7 +23,31 @@ def choose_name():
         choose_name()
 
 
+def choose_difficulty():
+    """
+    This code prompts the user to input a difficulty choice.
+    The user's choice will call a random word from the chosen
+    word list.
+    """
+    difficulty = input("Please select a difficulty: E for Easy or H for Hard\n")
+
+    if difficulty.upper() == 'E':
+        hidden_word = random.choice(easy_word_list)
+        print(hidden_word)
+    elif difficulty.upper() == 'H':
+        hidden_word = random.choice(hard_word_list)
+        print(hidden_word)
+    else:
+        print("Invalid Input.\nInput must match the above options.")
+        choose_difficulty()
+
+
 def main():
+    """
+    The primary function to run the hangman game.
+    """
     choose_name()
+    choose_difficulty()
+
 
 main()
