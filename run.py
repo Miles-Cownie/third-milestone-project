@@ -46,10 +46,18 @@ def choose_difficulty(name):
 
 def calculate_attempts(hidden_word):
     """
-    Calculates the number of attempts for the provided word
+    Calculates the number of attempts for the provided hidden word
     """
     attempts = len(hidden_word) + 2
     return attempts
+
+
+def build_prompt(hidden_word):
+    """
+    Builds the user prompt for the provided hidden word
+    """
+    word_prompt = "_" * len(hidden_word)
+    return word_prompt
 
 
 def main():
@@ -58,8 +66,10 @@ def main():
     """
     user_name = choose_name()
     word_to_guess = choose_difficulty(user_name)
-    attempts = calculate_attempts(word_to_guess)
-    print(attempts)
+    attempts_left = calculate_attempts(word_to_guess)
+    word_prompt = build_prompt(word_to_guess)
+    print(attempts_left)
+    print(word_prompt)
 
 
 main()
