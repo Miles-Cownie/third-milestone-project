@@ -48,16 +48,32 @@ def calculate_attempts(hidden_word):
     """
     Calculates the number of attempts for the provided hidden word
     """
-    attempts = len(hidden_word) + 2
-    return attempts
+    attempts_left = len(hidden_word) + 2
+    return attempts_left
 
 
 def build_prompt(hidden_word):
     """
     Builds the user prompt for the provided hidden word
     """
-    word_prompt = "_" * len(hidden_word)
-    return word_prompt
+    prompt = "_" * len(hidden_word)
+    return prompt
+
+
+def play(name, hidden_word, attempts, prompt):
+    """
+    This function contains the main gameplay loop for the hangman game,
+    checking the user's input and updating the answer as appropriate
+    """
+    guessed = False
+    guessed_letters = []
+    guessed_words = []
+
+    # Starting print for the game
+    print(f"Alright {name.capitalize()}, Lets play!")
+    print(f"You have {attempts} attempts left.")
+    print(prompt)
+    print("\n")
 
 
 def main():
@@ -68,8 +84,6 @@ def main():
     word_to_guess = choose_difficulty(user_name)
     attempts_left = calculate_attempts(word_to_guess)
     word_prompt = build_prompt(word_to_guess)
-    print(attempts_left)
-    print(word_prompt)
-
+    play(user_name, word_to_guess, attempts_left, word_prompt)
 
 main()
