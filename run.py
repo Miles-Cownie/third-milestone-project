@@ -10,8 +10,12 @@ from words_hard import hard_word_list
 
 
 def choose_name():
-    name = input("Please enter your name\n")
-    print(f"Hello, {name.capitalize()}, Let's get started!")
+    name = input("Please enter your name!\n")
+    if name.isalpha():
+        print(f"Hello, {name.capitalize()}, Let's get started!")
+    else:
+        print("Please enter a valid name using only letters. \n")
+        choose_name()
 
 
 def main():
