@@ -21,7 +21,7 @@ def choose_name():
     else:
         print("Please enter a valid name using only letters.\n")
         name = input("Please enter your name!\n")
-    return name
+    return name.capitalize()
 
 
 def choose_difficulty(name):
@@ -32,16 +32,17 @@ def choose_difficulty(name):
     """
     print(f"{name.capitalize()}, Please select a difficulty:")
     difficulty = input("E for Easy or H for Hard\n")
+    hidden_word = ''
 
-    if difficulty.upper() == 'E':
-        hidden_word = random.choice(easy_word_list)
-        return hidden_word
-    elif difficulty.upper() == 'H':
-        hidden_word = random.choice(hard_word_list)
-        return hidden_word
-    else:
-        print("Invalid Input.\nInput must match the above options.")
-        choose_difficulty(name)
+    while hidden_word == '':
+        if difficulty.upper() == 'E':
+            hidden_word = random.choice(easy_word_list)
+        elif difficulty.upper() == 'H':
+            hidden_word = random.choice(hard_word_list)
+        else:
+            print("Invalid Input.\nInput must match the above options.")
+            difficulty = input("E for Easy or H for Hard\n")
+    return hidden_word
 
 
 def calculate_attempts(hidden_word):
@@ -80,13 +81,13 @@ def play(name, hidden_word, attempts, prompt):
         # Code to handle when user inputs a letter
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
-                print("You have already guessed that letter:", guess)
+                print("You have already guessed that letter:", guess.upper())
             elif guess not in hidden_word:
-                print(guess, "is not in the word")
+                print(guess.upper(), "is not in the word")
                 attempts -= 1
                 guessed_letters.append(guess)
             else:
-                print(f"Well done {name}, {guess} is in the word!")
+                print(f"Well done {name}, {guess.upper()} is in the word!")
                 guessed_letters.append(guess)
                 hidden_word_as_list = list(prompt)
                 list_index = [i for i,
@@ -100,9 +101,9 @@ def play(name, hidden_word, attempts, prompt):
         # Code to handle when user inputs a word
         elif len(guess) == len(hidden_word) and guess.isalpha():
             if guess in guessed_words:
-                print(f"You have already guessed {guess}.")
+                print(f"You have already guessed {guess.capitalize()}.")
             elif guess != hidden_word:
-                print(f"{guess} is not the word.")
+                print(f"{guess.capitalize()} is not the word.")
                 attempts -= 1
                 guessed_words.append(guess)
             else:
