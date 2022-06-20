@@ -18,10 +18,10 @@ def choose_name():
     name = input("Please enter your name!\n")
     if name.isalpha():
         print(f"Hello, {name.capitalize()}, Let's get started!")
-        return name
     else:
-        print("Please enter a valid name using only letters. \n")
+        print("Please enter a valid name using only letters.\n")
         choose_name()
+    return name
 
 
 def choose_difficulty(name):
@@ -73,11 +73,10 @@ def play(name, hidden_word, attempts, prompt):
     print(f"Alright {name.capitalize()}, Lets play!")
     print(f"You have {attempts} attempts left.")
     print(prompt)
-    print("\n")
 
     # While loop to loop until either guessed or run out of tries
     while not guessed and attempts > 0:
-        guess = input(f"Please guess a letter or a word {name}.")
+        guess = input(f"Please guess a letter or a word {name}.\n")
         # Code to handle when user inputs a letter
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
@@ -89,7 +88,7 @@ def play(name, hidden_word, attempts, prompt):
             else:
                 print(f"Well done {name}, {guess} is in the word!")
                 guessed_letters.append(guess)
-                hidden_word_as_list = list(hidden_word)
+                hidden_word_as_list = list(prompt)
                 list_index = [i for i,
                               letter in enumerate(hidden_word)
                               if letter == guess]
@@ -111,10 +110,16 @@ def play(name, hidden_word, attempts, prompt):
                 prompt = hidden_word
         # Error message for invalid input
         else:
-            print(f"That isn't a valid guess {name}.\nPlease guess a letter or a word.")
+            print(f"That isn't a valid guess {name}.")
+            print("Please guess a letter or a word.")
         print(f"You have {attempts} attempts left.")
         print(prompt)
         print("\n")
+    if guessed:
+        print(f"Well done {name}, You have guessed the word!")
+    else:
+        print(f"Sorry {name}, you've run out of attempts")
+        print(f"The correct answer was {hidden_word}")
 
 
 def main():
@@ -126,6 +131,11 @@ def main():
     attempts_left = calculate_attempts(word_to_guess)
     word_prompt = build_prompt(word_to_guess)
     play(user_name, word_to_guess, attempts_left, word_prompt)
+    while input("Would you like to play again? Y/N\n").upper() == "Y":
+        word_to_guess = choose_difficulty(user_name)
+        attempts_left = calculate_attempts(word_to_guess)
+        word_prompt = build_prompt(word_to_guess)
+        play(user_name, word_to_guess, attempts_left, word_prompt)
 
 
 main()
