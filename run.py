@@ -14,4 +14,7 @@ def choose_name():
     print(f"Hello, {name.capitalize()}, Let's get started!")
 
 
-choose_name()
+def main():
+    choose_name()
+
+main()
