@@ -44,12 +44,22 @@ def choose_difficulty(name):
         choose_difficulty(name)
 
 
+def calculate_attempts(hidden_word):
+    """
+    Calculates the number of attempts for the provided word
+    """
+    attempts = len(hidden_word) + 2
+    return attempts
+
+
 def main():
     """
     The primary function to run the hangman game.
     """
     user_name = choose_name()
-    choose_difficulty(user_name)
+    word_to_guess = choose_difficulty(user_name)
+    attempts = calculate_attempts(word_to_guess)
+    print(attempts)
 
 
 main()
