@@ -40,7 +40,7 @@ def choose_difficulty(name):
         elif difficulty.upper() == 'H':
             hidden_word = random.choice(hard_word_list)
         else:
-            print("Invalid Input.\nInput must match the above options.")
+            print("Invalid Input.\nInput must match the below options.")
             difficulty = input("E for Easy or H for Hard\n")
     return hidden_word
 
