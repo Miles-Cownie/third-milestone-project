@@ -17,7 +17,7 @@ def choose_name():
     """
     name = input("Please enter your name!\n")
     if name.isalpha():
-        print(f"Hello, {name.capitalize()}, Let's get started!")
+        print(f"Hello, {name.capitalize()}, let's get started!\n")
     else:
         print("Please enter a valid name using only letters.\n")
         name = input("Please enter your name!\n")
@@ -30,7 +30,7 @@ def choose_difficulty(name):
     The user's choice will call a random word from the chosen
     word list.
     """
-    print(f"{name.capitalize()}, Please select a difficulty:")
+    print("Please select a difficulty:")
     difficulty = input("E for Easy or H for Hard\n")
     hidden_word = ''
 
@@ -71,8 +71,9 @@ def play(name, hidden_word, attempts, prompt):
     guessed_words = []
 
     # Starting print for the game
-    print(f"Alright {name.capitalize()}, Lets play!")
+    print(f"Alright {name.capitalize()}, let's play!")
     print(f"You have {attempts} attempts left.")
+    print("\n")
     print(prompt)
 
     # While loop to loop until either guessed or run out of tries
@@ -114,10 +115,10 @@ def play(name, hidden_word, attempts, prompt):
             print(f"That isn't a valid guess {name}.")
             print("Please guess a letter or a word.")
         print(f"You have {attempts} attempts left.")
-        print(prompt)
         print("\n")
+        print(prompt)
     if guessed:
-        print(f"Well done {name}, You have guessed the word!")
+        print(f"Well done {name}, you have guessed the word!")
     else:
         print(f"Sorry {name}, you've run out of attempts")
         print(f"The correct answer was {hidden_word}")
