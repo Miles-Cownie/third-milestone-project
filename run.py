@@ -9,6 +9,20 @@ from words_easy import easy_word_list
 from words_hard import hard_word_list
 
 
+def introduction():
+    """
+    This code provides instructions for the user
+    at the start of the hangman game.
+    """
+    intro = """Welcome to Hangman!
+The aim of the game is to guess the secret
+word. You can guess either a single letter
+or the entire word. The game ends when you
+guess the secret word correctly or run out
+of attempts to guess!\n"""
+    print(intro)
+
+
 def choose_name():
     """
     This code prompts the user to input their name.
@@ -128,6 +142,7 @@ def main():
     """
     The primary function to run the hangman game.
     """
+    introduction()
     user_name = choose_name()
     word_to_guess = choose_difficulty()
     attempts_left = calculate_attempts(word_to_guess)
