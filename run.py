@@ -24,7 +24,7 @@ def choose_name():
     return name.capitalize()
 
 
-def choose_difficulty(name):
+def choose_difficulty():
     """
     This code prompts the user to input a difficulty choice.
     The user's choice will call a random word from the chosen
@@ -129,12 +129,12 @@ def main():
     The primary function to run the hangman game.
     """
     user_name = choose_name()
-    word_to_guess = choose_difficulty(user_name)
+    word_to_guess = choose_difficulty()
     attempts_left = calculate_attempts(word_to_guess)
     word_prompt = build_prompt(word_to_guess)
     play(user_name, word_to_guess, attempts_left, word_prompt)
     while input("Would you like to play again? Y/N\n").upper() == "Y":
-        word_to_guess = choose_difficulty(user_name)
+        word_to_guess = choose_difficulty()
         attempts_left = calculate_attempts(word_to_guess)
         word_prompt = build_prompt(word_to_guess)
         play(user_name, word_to_guess, attempts_left, word_prompt)
