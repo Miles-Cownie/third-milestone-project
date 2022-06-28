@@ -48,3 +48,5 @@ Once the user selects a difficulty, the program the sets the number of attempts 
 
 ## Word Prompt
 The word to guess that the difficulty selector created is used to build a prompt to help the user guess. The prompt builder creates a series of underscore lines ("_") equal to the length of the word to guess
+
+# Technologies Used

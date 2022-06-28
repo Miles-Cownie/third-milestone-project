@@ -75,7 +75,15 @@ def build_prompt(hidden_word):
     return prompt
 
 
-def play(name, hidden_word, attempts, prompt):
+def track_score(name, wins, losses):
+    """
+    Stores and updates the user's game progress, tallying wins and losses.
+    """
+    score = f"{name}, your score so far is: wins = {wins}, losses = {losses}"
+    print(score)
+
+
+def play(name, hidden_word, attempts, prompt, wins, losses):
     """
     This function contains the main gameplay loop for the hangman game,
     checking the user's input and updating the answer as appropriate
@@ -134,26 +142,32 @@ def play(name, hidden_word, attempts, prompt):
     # End of the primary gameplay loop
     if guessed:
         print(f"Well done {name}, you have guessed the word!")
+        track_score(name, wins, losses)
     else:
         print(f"Sorry {name}, you've run out of attempts")
         print(f"The correct answer was {hidden_word}")
+        track_score(name, wins, losses)
 
 
 def main():
     """
     The primary function to run the hangman game.
     """
+    user_wins = 0
+    user_losses = 0
     introduction()
     user_name = choose_name()
     word_to_guess = choose_difficulty()
     attempts_left = calculate_attempts(word_to_guess)
     word_prompt = build_prompt(word_to_guess)
-    play(user_name, word_to_guess, attempts_left, word_prompt)
+    play(user_name, word_to_guess, attempts_left, word_prompt, user_wins,
+         user_losses)
     while input("Would you like to play again? Y/N\n").upper() == "Y":
         word_to_guess = choose_difficulty()
         attempts_left = calculate_attempts(word_to_guess)
         word_prompt = build_prompt(word_to_guess)
-        play(user_name, word_to_guess, attempts_left, word_prompt)
+        play(user_name, word_to_guess, attempts_left, word_prompt, user_wins,
+             user_losses)
 
 
 main()
