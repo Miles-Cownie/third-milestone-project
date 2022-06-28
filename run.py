@@ -131,6 +131,7 @@ def play(name, hidden_word, attempts, prompt):
         print(f"You have {attempts} attempts left.")
         print("\n")
         print(prompt)
+    # End of the primary gameplay loop
     if guessed:
         print(f"Well done {name}, you have guessed the word!")
     else:

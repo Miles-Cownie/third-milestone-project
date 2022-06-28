@@ -1,31 +1,50 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hang that man!
+Hang that man! is an alternative of the classic word game 'Hangman'. It is built using Python and runs through the
+Code institute mock terminal on Heroku.
 
-Welcome Miles-Cownie,
+# Contents
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+* [**User Experience**](<#user-experience>)
+  * [Wireframes](<#wireframes>)
+* [**Existing Features**](<#existing-features>)
+  * [User Name Input](<#user-name-input>)
+  * [Difficulty Selection](<#difficulty-selection>)
+  * [Dynamic Attempts](<#dynamic-attempts>)
+  * [Word Prompt](<#word-prompt>)
 
-## Reminders
+# User Experience
+Users may attempt to guess the hidden word using either letter or word guesses. The game is over when the user guesses correctly
+or runs out of attempts.
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## Wireframes
+Wireframes for Hang that man! were built using [Balsamiq](https:/balsamiq.com).
 
-## Creating the Heroku app
+![Wireframe Game Flow](#)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+The first wireframe consists of the initial game flow. The user is prompeted to input a name and select a difficulty. After this, the hidden answer is calculated and the number of attempts the user is given is dynamically calculated. A prompt is then built to store and display the user's correct guesses. Once the starting prompt is created, the main gameplay loop runs until the user either wins or loses. The user is then prompted to play again, returning them back to the start of the game flow.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+![Wireframe Game Loop](#)
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+The second wireframe consists of the primary gameplay loop. The user is prompted to input either a letter or word guess into the console. 
+If the user inputs a word it is checked if it matches the hidden word. When the user guesses correctly, the prompt is filled in and the user wins the loop. When the user guesses incorrectly, the number of attempts is decreased by one.
+If the user inputs a letter the program checks if the letter is within the hidden word. If the guess is correct, the prompt is updated with the correct guess in the correct place(s). If the guess is incorrect, the number of attempts is decreased by one.
+The main gameplay loop ends when the user either correctly guesses the word, using either letters or word guesses, or runs out of attempts.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+[Back to top](<#contents>)
 
-Connect your GitHub repository and deploy as normal.
+# Existing Features
 
-## Constraints
+![Opening Game Console](#)
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## User Name Input
+The user is prompted, during the initial loop of the game, to input a name. The name is checked to ensure it is containing only letters and does not contain symbols or numbers. If the user inputs an invalid name, the program prompts them to enter a new name and explains the valid input for a name. If the user inputs a valid name, the input is stored as the user_name variable.
+The user_name variable is used to add a personal touch to the game experience for the user.
 
------
-Happy coding!
+## Difficulty Selection
+The user is prompted to choose a difficulty, with either easy or hard as options. When the user selects a difficulty, the program selects a random word from the appropriate list and stores it as the word_to_guess variable. If the user inputs an invalid option, an error message is generated and the user is prompted again.
+
+## Dynamic Attempts
+Once the user selects a difficulty, the program the sets the number of attempts the user gets for guessing the answers. This is done by calculating the length of the word to guess and adding two. The attempts are displayed to the user throughout the game so they do not need to scroll in order to see their remaining attempts.
+
+## Word Prompt
+The word to guess that the difficulty selector created is used to build a prompt to help the user guess. The prompt builder creates a series of underscore lines ("_") equal to the length of the word to guess
