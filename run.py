@@ -75,15 +75,28 @@ def build_prompt(hidden_word):
     return prompt
 
 
-def track_score(name, wins, losses):
+def calculate_score(guess, score):
+    """
+    Checks if user won or lost and updates score accordingly
+    """
+    local_score = score
+    if guess:
+        local_score[0] += 1
+    else:
+        local_score[1] += 1
+    return local_score
+
+
+def track_score(name, score):
     """
     Stores and updates the user's game progress, tallying wins and losses.
     """
-    score = f"{name}, your score so far is: wins = {wins}, losses = {losses}"
+    score = f"""{name}, your score so far is:
+    wins = {score[0]}, losses = {score[1]}"""
     print(score)
 
 
-def play(name, hidden_word, attempts, prompt, wins, losses):
+def play(name, hidden_word, attempts, prompt):
     """
     This function contains the main gameplay loop for the hangman game,
     checking the user's input and updating the answer as appropriate
@@ -142,32 +155,32 @@ def play(name, hidden_word, attempts, prompt, wins, losses):
     # End of the primary gameplay loop
     if guessed:
         print(f"Well done {name}, you have guessed the word!")
-        track_score(name, wins, losses)
     else:
         print(f"Sorry {name}, you've run out of attempts")
         print(f"The correct answer was {hidden_word}")
-        track_score(name, wins, losses)
+    return guessed
 
 
 def main():
     """
     The primary function to run the hangman game.
     """
-    user_wins = 0
-    user_losses = 0
+    score = [0, 0]
     introduction()
     user_name = choose_name()
     word_to_guess = choose_difficulty()
     attempts_left = calculate_attempts(word_to_guess)
     word_prompt = build_prompt(word_to_guess)
-    play(user_name, word_to_guess, attempts_left, word_prompt, user_wins,
-         user_losses)
+    outcome = play(user_name, word_to_guess, attempts_left, word_prompt)
+    score = calculate_score(outcome, score)
+    track_score(user_name, score)
     while input("Would you like to play again? Y/N\n").upper() == "Y":
         word_to_guess = choose_difficulty()
         attempts_left = calculate_attempts(word_to_guess)
         word_prompt = build_prompt(word_to_guess)
-        play(user_name, word_to_guess, attempts_left, word_prompt, user_wins,
-             user_losses)
+        outcome = play(user_name, word_to_guess, attempts_left, word_prompt)
+        score = calculate_score(outcome, score)
+        track_score(user_name, score)
 
 
 main()
