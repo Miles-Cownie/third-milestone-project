@@ -63,7 +63,7 @@ def calculate_attempts(hidden_word):
     """
     Calculates the number of attempts for the provided hidden word
     """
-    attempts_left = len(hidden_word) + 2
+    attempts_left = 6 + (len(hidden_word) // 4)
     return attempts_left
 
 
