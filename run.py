@@ -7,6 +7,7 @@ It also imports the word lists from the other two python files
 import random
 from words_easy import easy_word_list
 from words_hard import hard_word_list
+from hangman_stages import stages
 
 
 def introduction():
@@ -73,6 +74,18 @@ def build_prompt(hidden_word):
     """
     prompt = "_" * len(hidden_word)
     return prompt
+
+
+def display_hangman(attempts, stage):
+    """
+    Shows the appropriite hangman stage for the dynamic attempts
+    """
+    while attempts > 5:
+        hangman = "The man approaches the gallows..."
+        break
+    else:
+        hangman = stage[attempts]
+    return hangman
 
 
 def calculate_score(guess, score):
@@ -149,6 +162,8 @@ def play(name, hidden_word, attempts, prompt):
         else:
             print(f"That isn't a valid guess {name}.")
             print("Please guess a letter or a word.")
+        hangman = display_hangman(attempts, stages)
+        print(hangman)
         print(f"You have {attempts} attempts left.")
         print("\n")
         print(prompt)
