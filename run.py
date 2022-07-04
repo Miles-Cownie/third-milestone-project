@@ -17,7 +17,8 @@ def introduction():
     """
     intro = """Welcome to Hangman!
 The aim of the game is to guess the secret
-word. You can guess either a single letter
+word. Start by choosing and easy word or a
+hard word. You can guess either a single letter
 or the entire word. The game ends when you
 guess the secret word correctly or run out
 of attempts to guess!\n"""
@@ -114,6 +115,7 @@ def play(name, hidden_word, attempts, prompt):
     This function contains the main gameplay loop for the hangman game,
     checking the user's input and updating the answer as appropriate
     """
+    # play function sourced and modified from Kite's tutorial - See Readme
     guessed = False
     guessed_letters = []
     guessed_words = []
