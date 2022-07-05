@@ -30,11 +30,11 @@ or runs out of attempts.
 ## Wireframes
 Wireframes for Hang that man! were built using [Balsamiq](https:/balsamiq.com).
 
-![Wireframe Game Flow](#)
+![Wireframe Game Flow](assets/readme_images/wireframe-game-flow.png)
 
 The first wireframe consists of the initial game flow. The user is prompeted to input a name and select a difficulty. After this, the hidden answer is calculated and the number of attempts the user is given is dynamically calculated. A prompt is then built to store and display the user's correct guesses. Once the starting prompt is created, the main gameplay loop runs until the user either wins or loses. The user is then prompted to play again, returning them back to the start of the game flow.
 
-![Wireframe Game Loop](#)
+![Wireframe Game Loop](assets/readme_images/wireframe-game-loop.png)
 
 The second wireframe consists of the primary gameplay loop. The user is prompted to input either a letter or word guess into the console. 
 If the user inputs a word it is checked if it matches the hidden word. When the user guesses correctly, the prompt is filled in and the user wins the loop. When the user guesses incorrectly, the number of attempts is decreased by one.
@@ -45,7 +45,7 @@ The main gameplay loop ends when the user either correctly guesses the word, usi
 
 # Existing Features
 
-![Opening Game Console](#)
+![Opening Game Console](assets/readme_images/console_hangman_intro.png)
 
 ## User Name Input
 The user is prompted, during the initial loop of the game, to input a name. The name is checked to ensure it is containing only letters and does not contain symbols or numbers. If the user inputs an invalid name, the program prompts them to enter a new name and explains the valid input for a name. If the user inputs a valid name, the input is stored as the user_name variable.
@@ -60,12 +60,12 @@ Once the user selects a difficulty, the program the sets the number of attempts 
 ## Word Prompt
 The word to guess that the difficulty selector created is used to build a prompt to help the user guess. The prompt builder creates a series of underscore lines ("_") equal to the length of the word to guess
 
-![Hangman image console](#)
+![Hangman image console](assets/readme_images/console_hangman_game.png)
 
 ## Dynamic Hangman Image
 The hangman image uses the dynamic attempts calculation to display the hangman image according to the number of attempts the user has left. For the final six attempts, the images of the hangman stages cycle through as the user runs out of attempts. Prior to this, text is displayed providing context for the user.
 
-![Win/Loss Image](#)
+![Win/Loss Image](assets/readme_images/console_hangman_win_loss.png)
 
 ## Win/Loss tracker
 The user is provided with a running tally of their wins and losses during the running of the program. So long as the user chooses to continue playing, the tally will keep track of their progress and inform them at the end of each game.
@@ -97,7 +97,7 @@ Expected results from user inputs were checked and corrected when errors occured
 All python files pass through validation using the [Pep8](http://pep8online.com) online software. All files pass through with no errors present.
 
 The example for the run.py result are below:
-![run.py result](#)
+![run.py result](assets/readme_images/pep8_maincode.png)
 
 [Back to top](<#contents>)
 
@@ -143,13 +143,13 @@ The game was deployed via an online terminal developed by Code institute known a
 12. Link the App to your repository
 13. Select deploy
 
-![Heroku deployment A](#)
+![Heroku deployment A](assets/readme_images/heroku-deployment-a.png)
 
-![Heroku deployment B](#)
+![Heroku deployment B](assets/readme_images/heroku-deployment-b.png)
 
-![Heroku deployment C](#)
+![Heroku deployment C](assets/readme_images/heroku-deployment-c.png)
 
-![Heroku deployment D](#)
+![Heroku deployment D](assets/readme_images/heroku-deployment-d.png)
 
 [Back to top](<#contents>)
 
@@ -172,6 +172,8 @@ The game was deployed via an online terminal developed by Code institute known a
 * The initial project structure was inspired by Debiani Paul's article from [iCodemag](https://icodemag.com/creating-a-simple-hangman-game-in-python/).
 * The base python code was sourced from Kite on [Youtube](https://www.youtube.com/watch?v=m4nEnsavl6w).
 * The Readme format was sourced from Lavlen on [Github](https://github.com/Lavlen/hangman/blob/main/README.md).
+* The easy word list was sourced from [Oxford Owl](https://cdn.oxfordowl.co.uk/2019/08/29/13/56/09/5a42eb6a-f57f-4dc4-a66e-bd4c5e27e4b7/SpellingWordList_Y5-6.pdf).
+* The hard word list was sourced from [Hangman Words](https://www.hangmanwords.com/words).
 
 [Back to top](<#contents>)
 
