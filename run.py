@@ -10,6 +10,13 @@ from words_hard import hard_word_list
 from hangman_stages import stages
 
 
+def pr_red(text):
+    """
+    Function to change text colour to red
+    """
+    return "\033[91m {}\033[00m".format(text)
+
+
 def introduction():
     """
     This code provides instructions for the user
@@ -74,7 +81,7 @@ def build_prompt(hidden_word):
     """
     Builds the user prompt for the provided hidden word
     """
-    prompt = " _ " * len(hidden_word)
+    prompt = "_ " * len(hidden_word)
     return prompt
 
 
@@ -83,10 +90,10 @@ def display_hangman(attempts, stage):
     Shows the appropriite hangman stage for the dynamic attempts
     """
     while attempts > 5:
-        hangman = "The man approaches the gallows..."
+        hangman = pr_red("The man approaches the gallows...")
         break
     else:
-        hangman = stage[attempts]
+        hangman = pr_red(stage[attempts])
     return hangman
 
 
