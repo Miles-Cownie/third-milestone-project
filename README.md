@@ -2,6 +2,8 @@
 Hang that man! is an alternative of the classic word game 'Hangman'. It is built using Python and runs through the
 Code institute mock terminal on Heroku.
 
+![Hangman responsive game](assets/readme_images/hang_that_man.png)
+
 # Contents
 
 * [**User Experience**](<#user-experience>)
@@ -21,7 +23,7 @@ Code institute mock terminal on Heroku.
   * [Cloning a Project](#cloning-a-project)
 * [**Credits**](#credits)
   * [Content](#content)
-* [**Acknowledments](#acknowledgements)
+* [**Acknowledments**](#acknowledgements)
 
 # User Experience
 Users may attempt to guess the hidden word using either letter or word guesses. The game is over when the user guesses correctly
@@ -97,6 +99,7 @@ Expected results from user inputs were checked and corrected when errors occured
 All python files pass through validation using the [Pep8](http://pep8online.com) online software. All files pass through with no errors present.
 
 The example for the run.py result are below:
+
 ![run.py result](assets/readme_images/pep8_maincode.png)
 
 [Back to top](<#contents>)
