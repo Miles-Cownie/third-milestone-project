@@ -74,7 +74,7 @@ def build_prompt(hidden_word):
     """
     Builds the user prompt for the provided hidden word
     """
-    prompt = "_" * len(hidden_word)
+    prompt = " _ " * len(hidden_word)
     return prompt
 
 
@@ -199,6 +199,10 @@ def main():
         outcome = play(user_name, word_to_guess, attempts_left, word_prompt)
         score = calculate_score(outcome, score)
         track_score(user_name, score)
+        break
+    else:
+        print("\033c")
+        main()
 
 
 main()
