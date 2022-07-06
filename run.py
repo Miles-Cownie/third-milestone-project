@@ -31,13 +31,14 @@ def choose_name():
     Names not made of letters will flag error to user and
     they will be prompt to submit a valid name.
     """
-    name = input("Please enter your name!\n")
-    if name.isalpha():
-        print(f"Hello, {name.capitalize()}, let's get started!\n")
-    else:
-        print("Please enter a valid name using only letters.\n")
+    while True:
         name = input("Please enter your name!\n")
-    return name.capitalize()
+        if name.isalpha():
+            print(f"Hello, {name.capitalize()}, let's get started!\n")
+            name = str(name)
+            return name.capitalize()
+        else:
+            print("Please enter a valid name using only letters.\n")
 
 
 def choose_difficulty():

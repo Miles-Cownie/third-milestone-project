@@ -29,16 +29,16 @@ Code institute mock terminal on Heroku.
 Users may attempt to guess the hidden word using either letter or word guesses. The game is over when the user guesses correctly
 or runs out of attempts.
 
-## Wireframes
-Wireframes for Hang that man! were built using [Balsamiq](https:/balsamiq.com).
+## Flowchart
+Flowcharts for Hang that man! were built using [Balsamiq](https:/balsamiq.com).
 
-![Wireframe Game Flow](assets/readme_images/wireframe-game-flow.png)
+![Game Flow](assets/readme_images/wireframe-game-flow.png)
 
-The first wireframe consists of the initial game flow. The user is prompeted to input a name and select a difficulty. After this, the hidden answer is calculated and the number of attempts the user is given is dynamically calculated. A prompt is then built to store and display the user's correct guesses. Once the starting prompt is created, the main gameplay loop runs until the user either wins or loses. The user is then prompted to play again, returning them back to the start of the game flow.
+The first flowchart consists of the initial game flow. The user is prompeted to input a name and select a difficulty. After this, the hidden answer is calculated and the number of attempts the user is given is dynamically calculated. A prompt is then built to store and display the user's correct guesses. Once the starting prompt is created, the main gameplay loop runs until the user either wins or loses. The user is then prompted to play again, returning them back to the start of the game flow.
 
-![Wireframe Game Loop](assets/readme_images/wireframe-game-loop.png)
+![Game Loop](assets/readme_images/wireframe-game-loop.png)
 
-The second wireframe consists of the primary gameplay loop. The user is prompted to input either a letter or word guess into the console. 
+The second flowchart consists of the primary gameplay loop. The user is prompted to input either a letter or word guess into the console. 
 If the user inputs a word it is checked if it matches the hidden word. When the user guesses correctly, the prompt is filled in and the user wins the loop. When the user guesses incorrectly, the number of attempts is decreased by one.
 If the user inputs a letter the program checks if the letter is within the hidden word. If the guess is correct, the prompt is updated with the correct guess in the correct place(s). If the guess is incorrect, the number of attempts is decreased by one.
 The main gameplay loop ends when the user either correctly guesses the word, using either letters or word guesses, or runs out of attempts.
@@ -156,7 +156,7 @@ The game was deployed via an online terminal developed by Code institute known a
 
 [Back to top](<#contents>)
 
-## Cloning a project
+## Cloning the repository
 
 1. Go to https://github.com/
 2. Log into account
