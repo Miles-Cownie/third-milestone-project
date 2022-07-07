@@ -1,13 +1,13 @@
 # Hang that man!
 Hang that man! is an alternative of the classic word game 'Hangman'. It is built using Python and runs through the
-Code institute mock terminal on Heroku.
+Code institute mock terminal on [Heroku](<https://third-portfolio-project-mjc.herokuapp.com>).
 
 ![Hangman responsive game](assets/readme_images/hang_that_man.png)
 
 # Contents
 
 * [**User Experience**](<#user-experience>)
-  * [Wireframes](<#wireframes>)
+  * [Flowchart](<#flowchart>)
 * [**Existing Features**](<#existing-features>)
   * [User Name Input](<#user-name-input>)
   * [Difficulty Selection](<#difficulty-selection>)
@@ -30,18 +30,15 @@ Users may attempt to guess the hidden word using either letter or word guesses. 
 or runs out of attempts.
 
 ## Flowchart
-Flowcharts for Hang that man! were built using [Balsamiq](https:/balsamiq.com).
+The Flowchart for Hang that man! was built using [Visual Paradigm](https://online.visual-paradigm.com/diagrams/features/flowchart-tool/).
 
-![Game Flow](assets/readme_images/wireframe-game-flow.png)
+The flowchart consists of the game flow and primary gameplay loop. The user is prompeted to input a name and select a difficulty. After this, the hidden answer is calculated and the number of attempts the user is given is dynamically calculated. A prompt is then built to store and display the user's correct guesses. Once the starting prompt is created, the main gameplay loop runs until the user either wins or loses.
 
-The first flowchart consists of the initial game flow. The user is prompeted to input a name and select a difficulty. After this, the hidden answer is calculated and the number of attempts the user is given is dynamically calculated. A prompt is then built to store and display the user's correct guesses. Once the starting prompt is created, the main gameplay loop runs until the user either wins or loses. The user is then prompted to play again, returning them back to the start of the game flow.
-
-![Game Loop](assets/readme_images/wireframe-game-loop.png)
-
-The second flowchart consists of the primary gameplay loop. The user is prompted to input either a letter or word guess into the console. 
-If the user inputs a word it is checked if it matches the hidden word. When the user guesses correctly, the prompt is filled in and the user wins the loop. When the user guesses incorrectly, the number of attempts is decreased by one.
+The user is prompted to input either a letter or word guess into the console. If the user inputs a word it is checked if it matches the hidden word. When the user guesses correctly, the prompt is filled in and the user wins the loop. When the user guesses incorrectly, the number of attempts is decreased by one.
 If the user inputs a letter the program checks if the letter is within the hidden word. If the guess is correct, the prompt is updated with the correct guess in the correct place(s). If the guess is incorrect, the number of attempts is decreased by one.
 The main gameplay loop ends when the user either correctly guesses the word, using either letters or word guesses, or runs out of attempts.
+
+![Flowchart](assets/readme_images/flowchart_hangman.png)
 
 [Back to top](<#contents>)
 
@@ -78,7 +75,7 @@ The user is provided with a running tally of their wins and losses during the ru
 
 * [Python](https://www.python.org) - Sole programming language used to program the game.
 * [Heroku](https://www.heroku.com) - Hosting platform for the programme.
-* [Balsamiq](https://balsamiq.com/wireframes/) - Design and build wireframes for the site.
+* [Visual Paradigm](https://online.visual-paradigm.com/diagrams/features/flowchart-tool/).
 * [Github](https://github.com) - Acts as a repository for the site's code.
 * [Gitpod](https://www.gitpod.io) - Builds and edits the code for the site.
 
@@ -94,7 +91,7 @@ Expected results from user inputs were checked and corrected when errors occured
 * The dynamic hangman image responds correctly to the number of attempts left for the user.
 * The user's input is correctly stored and checked for repeats. Repeats are flagged to the user.
 * Both letter and word input word as expected.
-* USer wins and losses are stored and presented correctly to the user.
+* User wins and losses are stored and presented correctly to the user.
 
 All python files pass through validation using the [Pep8](http://pep8online.com) online software. All files pass through with no errors present.
 
