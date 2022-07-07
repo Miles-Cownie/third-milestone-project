@@ -17,6 +17,13 @@ def pr_red(text):
     return "\033[91m {}\033[00m".format(text)
 
 
+def pr_cyan(text):
+    """
+    Function to change text color to cyan
+    """
+    return "\033[96m {}\033[00m" .format(text)
+
+
 def introduction():
     """
     This code provides instructions for the user
@@ -30,6 +37,33 @@ or the entire word. The game ends when you
 guess the secret word correctly or run out
 of attempts to guess!\n"""
     print(intro)
+
+
+def print_rules():
+    """
+    This code prompts the user to read the rules of hangman
+    After user inputs choice, code carries on to main game
+    """
+    print("Enter R to read the rules.")
+    choice = input("Otherwise, enter P to play\n")
+    if choice.upper() == 'R':
+        rules = """Start by choosing an easy word or a hard word.
+Then you will see your prompt and how many attempts you have
+to guess the hidden word. You can guess either a single letter
+or the whole word. If you guess a correct letter, the prompt
+will fill in the spaces the letter belongs to. If you guess the
+correct word, you win! If your guess is incorrect, you lose one
+of your attempts and the hangmans noose draws closer. After
+several guesses, you will see the hangmans gallows fill up. Once
+you use up all your attempts, the game is over! Your progress is
+stored and you can choose to play again.
+    """
+        print(pr_cyan(rules))
+    elif choice.upper() == 'P':
+        print("Let's get started")
+    else:
+        print("Unknown command entered")
+        print_rules()
 
 
 def choose_name():
@@ -193,6 +227,7 @@ def main():
     score = [0, 0]
     introduction()
     user_name = choose_name()
+    print_rules()
     word_to_guess = choose_difficulty()
     attempts_left = calculate_attempts(word_to_guess)
     word_prompt = build_prompt(word_to_guess)

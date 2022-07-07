@@ -6,15 +6,16 @@ Code institute mock terminal on [Heroku](<https://third-portfolio-project-mjc.he
 
 # Contents
 
-* [**User Experience**](<#user-experience>)
-  * [Flowchart](<#flowchart>)
-* [**Existing Features**](<#existing-features>)
-  * [User Name Input](<#user-name-input>)
-  * [Difficulty Selection](<#difficulty-selection>)
-  * [Dynamic Attempts](<#dynamic-attempts>)
-  * [Word Prompt](<#word-prompt>)
+* [**User Experience**](#user-experience)
+  * [Flowchart](#flowchart)
+* [**Existing Features**](#existing-features)
+  * [User Name Input](#user-name-input)
+  * [Difficulty Selection](#difficulty-selection)
+  * [Dynamic Attempts](#dynamic-attempts)
+  * [Word Prompt](#word-prompt)
   * [Dynamic Hangman Image](#dynamic-hangman-image)
   * [Win/Loss Tracker](#winloss-tracker)
+* [**Desired Features**](#desired-features)
 * [**Technologies Used**](#technologies-used)
 * [**Testing and Quality Control**](#testing-and-quality-control)
   * [Device and Browser Testing](#device-and-browser-testing)
@@ -71,11 +72,18 @@ The user is provided with a running tally of their wins and losses during the ru
 
 [Back to top](<#contents>)
 
+# Desired Features
+* Leaderboard system to track different user's wins and losses.
+* Hints for words to add additional interactivity.
+* Help function that may be called during the game to remind user of rules. 
+
+[Back to top](<#contents>)
+
 # Technologies Used
 
 * [Python](https://www.python.org) - Sole programming language used to program the game.
 * [Heroku](https://www.heroku.com) - Hosting platform for the programme.
-* [Visual Paradigm](https://online.visual-paradigm.com/diagrams/features/flowchart-tool/).
+* [Visual Paradigm](https://online.visual-paradigm.com/diagrams/features/flowchart-tool/) - Used to design and create the game flowchart.
 * [Github](https://github.com) - Acts as a repository for the site's code.
 * [Gitpod](https://www.gitpod.io) - Builds and edits the code for the site.
 
