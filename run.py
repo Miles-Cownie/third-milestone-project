@@ -115,7 +115,7 @@ def build_prompt(hidden_word):
     """
     Builds the user prompt for the provided hidden word
     """
-    prompt = "_ " * len(hidden_word)
+    prompt = "-" * len(hidden_word)
     return prompt
 
 
@@ -189,7 +189,7 @@ def play(name, hidden_word, attempts, prompt):
                 for index in list_index:
                     hidden_word_as_list[index] = guess
                 prompt = "".join(hidden_word_as_list)
-                if "_" not in prompt:
+                if "-" not in prompt:
                     guessed = True
         # Code to handle when user inputs a word
         elif len(guess) == len(hidden_word) and guess.isalpha():
@@ -241,10 +241,8 @@ def main():
         outcome = play(user_name, word_to_guess, attempts_left, word_prompt)
         score = calculate_score(outcome, score)
         track_score(user_name, score)
-        break
-    else:
-        print("\033c")
-        main()
+    print("\033c")
+    main()
 
 
 main()
