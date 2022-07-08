@@ -57,10 +57,12 @@ The user is prompted to choose a difficulty, with either easy or hard as options
 ## Dynamic Attempts
 Once the user selects a difficulty, the program the sets the number of attempts the user gets for guessing the answers. A value equal to one quater of the hidden word is added to the base attempt of six. This attempt calculation guarentees a minimum amount of attempts for the hangman images to work with, while also maintaining dynamic difficulty. The attempts are displayed to the user throughout the game so they do not need to scroll in order to see their remaining attempts.
 
+![Hangman image console](assets/readme_images/console_hangman_game_b.png)
+
 ## Word Prompt
 The word to guess that the difficulty selector created is used to build a prompt to help the user guess. The prompt builder creates a series of underscore lines ("_") equal to the length of the word to guess
 
-![Hangman image console](assets/readme_images/console_hangman_game.png)
+![Hangman image console](assets/readme_images/console_hangman_game_a.png)
 
 ## Dynamic Hangman Image
 The hangman image uses the dynamic attempts calculation to display the hangman image according to the number of attempts the user has left. For the final six attempts, the images of the hangman stages cycle through as the user runs out of attempts. Prior to this, text is displayed providing context for the user.
@@ -93,13 +95,43 @@ The user is provided with a running tally of their wins and losses during the ru
 
 Hang that man! was tested in both Gitpod during development and on the Heroku Terminal following deployemnt.
 Expected results from user inputs were checked and corrected when errors occured as follows:
-* Name input function stored user's entry as desired and printed error message when user input was not alphabetic.
-* Difficulty selector pulled the guess word from the correct list when user selected a difficulty.
-* Input error for the difficulty selector correctly prompts the user with the proper error message.
-* The dynamic hangman image responds correctly to the number of attempts left for the user.
-* The user's input is correctly stored and checked for repeats. Repeats are flagged to the user.
-* Both letter and word input word as expected.
-* User wins and losses are stored and presented correctly to the user.
+
+1. **Program Start**
+    - Confirmed program started without crashes.
+    - Introduction displayed without issue.
+    - Username input prompt runs on startup as expected.
+2. **Username Input**
+    - Confirmed valid username input stored in variable.
+    - Erroneous inputs call error message and input prompt agaas expected.
+3. **Rules Function**
+    - Confirmed rules function ran following username input.
+    - Confirmed valid rules input calls rules display for user.
+    - Confirmed valid play input skips rules display to difficulty selection.
+    - Erroneous inputs call error message and input prompt as expected.
+4. **Difficulty Selection**
+    - Confirmed that valid input pulls random word from correct word list.
+    - Erroneous input calls error message and input prompt as expected.
+5. **Dynamic Attempts**
+    - Confirmed attempts calculator runs as expected.
+    - Minimum attempts maintained during calculation.
+6. **Responsive Hangman Picture**
+    - Confirmed hangman image starts at correct number of remaining attempts.
+    - Confirmed text and image are both correctly coloured at all stages.
+7. **Guessed Letters Tracker**
+    - Confirmed user inputs stored in appropriate lists.
+    - Repeat user inputs correctly call error message and input prompt.
+8. **Win and Loss Parameters**
+    - Confirmed win state correctly activates on all correct letters guessed.
+    - Confirmed win state correctly activates on user correctly guessing the word.
+    - Confirmed loss state correctly activates when user runs out of attempts.
+9. **Win and Loss Tracker**
+    - Confirmed win and loss score update correctly following the appropriate win or loss state.
+    - Confirmed "Play Again" prompt runs after score is updated.
+10. **Play Again function**
+    - Confirmed game repeats at difficulty selection when user inputs "Y".
+    - Confirmed game returns to start of the program when user selects otherwise.
+
+[Back to top](<#contents>)
 
 All python files pass through validation using the [Pep8](http://pep8online.com) online software. All files pass through with no errors present.
 
@@ -130,6 +162,8 @@ During development the following bugs were identified and corrected:
 * Difficulty selection would store an invalid entry and would not be replaced by the repeat entry. Moving the return function corrected the error.
 * Console size was too wide during development. Adjusted code to fit within parameters.
 * User score function would reset for each run of main loop. Changed score storage to list fixed issue.
+* Name input continued to store erroneous input, modified return code and function structure to fix.
+* Program stopped unexpectedly after second playthrough. Removed break statement from main function to fix issue.
 
 [Back to top](<#contents>)
 
