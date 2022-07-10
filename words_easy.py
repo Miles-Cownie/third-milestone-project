@@ -76,7 +76,7 @@ easy_word_list = [
     'profession',
     'programme',
     'pronunciation',
-    'queue', 
+    'queue',
     'recognise',
     'recommend',
     'relevant',
